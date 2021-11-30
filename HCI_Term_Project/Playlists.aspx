@@ -3,4 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h3><%: Title %></h3>
     <h1>Playlists</h1>
+    <p aria-multiselectable="False">
+        <asp:Label ID="playlistsItems" runat="server" Text="api"></asp:Label>
+    </p>
 </asp:Content>
