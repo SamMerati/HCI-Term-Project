@@ -226,6 +226,7 @@ optgroup {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  position:
 }
 td,
 th {
@@ -2391,6 +2392,13 @@ pre code {
 }
 table {
   background-color: transparent;
+    z-index: 1;
+    left: 206px;
+    top: 43px;
+    position: relative;
+    height: 142px;
+    width: 1055px;
+    margin-top: 0px;
 }
 table col[class*="col-"] {
   position: static;
