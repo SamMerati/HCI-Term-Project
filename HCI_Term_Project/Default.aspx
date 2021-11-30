@@ -20,7 +20,7 @@
     <input name="login" type="submit" value="Log in" />
   </div>
   <div id="footer">
-    <a href="Home">Sign Up</a>
+    <a href="https://accounts.spotify.com/authorize?client_id=55f51ee8aa504686a72034c437db139d&amp;response_type=code&amp;scopes=playlist-read-private&amp;redirect_uri=https%3A%2F%2Flocalhost%3A44354%2FHome">Sign Up</a>
     <br />
     <a href="#">Forgot Password?</a>
   </div>
