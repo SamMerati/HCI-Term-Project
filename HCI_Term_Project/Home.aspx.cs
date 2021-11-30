@@ -14,10 +14,14 @@ namespace HCI_Term_Project
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            const string TOKEN = "BQCoDH7t3lRmUf_WU772rc5hxkcBVqg8BD2iZ1DMVdn0yq4PSC04-6dBcRNsE6n1ChPXCsQqPqbJcpbIwCKuy-jtMGBL6uXrCrhAWGNL_AYKiZ6HvLE2qsvD4Y8fGxMTepcydB306ShFsCKbeyJfH-bkJgLFHCe5nw";
+
+            Session["token"] = "Bearer " + TOKEN;
+
             var client = new RestClient("https://api.spotify.com/v1/me");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
-            request.AddHeader("Authorization", "Bearer BQCoDH7t3lRmUf_WU772rc5hxkcBVqg8BD2iZ1DMVdn0yq4PSC04-6dBcRNsE6n1ChPXCsQqPqbJcpbIwCKuy-jtMGBL6uXrCrhAWGNL_AYKiZ6HvLE2qsvD4Y8fGxMTepcydB306ShFsCKbeyJfH-bkJgLFHCe5nw");
+            request.AddHeader("Authorization", Session["token"].ToString());
             IRestResponse response = client.Execute(request);
 /*            Console.WriteLine(response.Content);
 */
