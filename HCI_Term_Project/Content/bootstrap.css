@@ -14,12 +14,12 @@ body {
 }
 
 .sidebar {
-    height: 100%;
+    height: 108%;
     width: 160px;
     position: fixed;
     z-index: 1;
-    top: 0;
-    left: 0;
+    top: -163px;
+    left: -9px;
     background-color: #111;
     overflow-x: hidden;
     padding-top: 16px;
@@ -226,7 +226,8 @@ optgroup {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  position:
+  position:;
+    right: 62px;
 }
 td,
 th {
@@ -2393,11 +2394,11 @@ pre code {
 table {
   background-color: transparent;
     z-index: 1;
-    left: 206px;
-    top: 43px;
+    left: -59px;
+    top: -19px;
     position: relative;
-    height: 142px;
-    width: 1055px;
+    height: 161px;
+    width: 92%;
     margin-top: 0px;
 }
 table col[class*="col-"] {
@@ -2691,7 +2692,6 @@ input[type="range"] {
 }
 select[multiple],
 select[size] {
-  height: auto;
 }
 input[type="file"]:focus,
 input[type="radio"]:focus,

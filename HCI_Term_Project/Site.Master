@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Spotify Term Project</title>
+    <title><%: Page.Title %>- Spotify Term Project</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -43,7 +43,9 @@
   <a href="Home"><i class="fa fa-fw fa-home"></i> Home</a>
   <a href="Songs"><i class="fa fa-fw fa-music"></i> Songs</a>
   <a href="Playlists"><i class="fa fa-fw fa-play"></i> Playlists</a>
-  <a href="Account"><i class="fa fa-fw fa-user"></i> Account</a>
+  <a href="Account"><i class="fa fa-fw fa-user"></i> Account</a><br />
+&nbsp;<a href="Account"><asp:ListBox ID="playlistsListBox" runat="server" BackColor="#1DB594" Font-Bold="True" Height="295px" Width="139px"></asp:ListBox>
+            </a>
 </div>
     </form>
 </body>
