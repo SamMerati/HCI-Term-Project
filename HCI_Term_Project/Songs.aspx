@@ -4,12 +4,16 @@
     <h3><%: Title %></h3>
     <h1>Liked Songs</h1>
     <p>Some of your top tracks!</p>
-    <asp:Table ID="songsTable" runat="server" HorizontalAlign="Center" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CellPadding="0" CellSpacing="0" GridLines="Horizontal" CssClass="songsTable">  
-    <asp:TableRow runat="server">  
-        <asp:TableCell runat="server">No.</asp:TableCell>  
-        <asp:TableCell runat="server">Title</asp:TableCell>  
-        <asp:TableCell runat="server">Album</asp:TableCell> 
-        <asp:TableCell runat="server">Time</asp:TableCell>  
-    </asp:TableRow>  
-</asp:Table>
+    <p>&nbsp;</p>
+    <p>
+        <asp:Table ID="songsTable" runat="server" CssClass="table">
+            <asp:TableRow runat="server" HorizontalAlign="Center">
+                <asp:TableCell runat="server">No.</asp:TableCell>
+                <asp:TableCell runat="server">Title</asp:TableCell>
+                <asp:TableCell runat="server">Artist</asp:TableCell>
+                <asp:TableCell runat="server">Date Added</asp:TableCell>
+                <asp:TableCell runat="server">Time (ms)</asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+    </p>
     </asp:Content>

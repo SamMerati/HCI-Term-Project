@@ -263,7 +263,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   position:;
-    right: -125px;
+    right: -271px;
 }
 td,
 th {
@@ -2430,8 +2430,8 @@ pre code {
 table {
   background-color: transparent;
     z-index: 1;
-    left: 132px;
-    top: -19px;
+    left: 271px;
+    top: -8px;
     position: relative;
     height: 161px;
     width: 72%;
@@ -2458,7 +2458,7 @@ th {
   text-align: left;
 }
 .table {
-  width: 100%;
+  width: 80%;
   max-width: 100%;
   margin-bottom: 20px;
 }

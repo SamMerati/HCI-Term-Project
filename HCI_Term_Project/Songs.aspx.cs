@@ -24,7 +24,11 @@ namespace HCI_Term_Project
             request.AddHeader("Authorization", Session["token"].ToString());
             IRestResponse response = client.Execute(request);
 
+
+
             JObject json = JObject.Parse(response.Content);
+
+
 
             int length = Int32.Parse(json["total"].ToString());
 
