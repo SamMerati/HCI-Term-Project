@@ -34,10 +34,14 @@ namespace HCI_Term_Project
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            this.newCode = HttpContext.Current.Request.Url.PathAndQuery.Replace("/Home?code=", "");
+            blahblah.Text = "asdsd";
+
+            newCode = HttpContext.Current.Request.Url.PathAndQuery.Replace("/Home?code=", "");
             JObject token = JObject.Parse(retrieveToken());
 
-            string TOKEN = token["access_token"].ToString();
+            //string TOKEN = token["access_token"].ToString();
+
+            string TOKEN = "BQCorcACq7W03lqdJMS91qrLZ0Nt7nQeX_WzvciqWVoAfimsQDsAbIuuEn_7ES7PLiRTJqgNSKTgO5jryVOQN9FUEMSMkIyUlsaQDed7-YxX87-wFtjx3u4M6q2QgCGrs2qpmWmgwwewj3mq95BmB-9iL6t41aio-7ljNlBde6PzEELBeBKlg0S4qQ7WMnd81skvdK5NqxuIOm4EftTjVzVNI6VigBq9xqma5tJWFukBXLefyEFTyNLzsqo42nn2sYmwvVq9fcMfT3o";
 
             Session["token"] = "Bearer " + TOKEN;
 

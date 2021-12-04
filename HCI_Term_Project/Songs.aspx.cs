@@ -12,7 +12,7 @@ namespace HCI_Term_Project
     public partial class About : Page
     {
 
-        private List<Song> songs = new List<Song>();
+        private List<Song> songs;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,42 +20,49 @@ namespace HCI_Term_Project
             var client = new RestClient("https://api.spotify.com/v1/me/tracks?scopes=user-library-read");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
+
+
+/*            JObject token = JObject.Parse(retrieveToken());
+*/
             request.AddHeader("Authorization", Session["token"].ToString());
             IRestResponse response = client.Execute(request);
 
 
 
-            /*            JObject json = JObject.Parse(response.Content);
-            */
+            JObject json = JObject.Parse(response.Content);
 
-            Label1.Text = response.Content.ToString();
 
-            for (int row = 1; row < 4; row++)
+
+/*            Label1.Text = json["items"].ToString();
+*/            int length = Int32.Parse(json["total"].ToString());
+
+            songs = new List<Song>();
+            foreach (var item in json["items"])
+            {
+                Label1.Text = item.ToString();
+
+                /*                songs.Add(new Song("item["name"].ToString()", item["artists"][0]["name"].ToString(), item["added_at"].ToString(), "ASD"));
+                */
+                songs.Add(new Song("hi", "bye", "no", "yes"));
+            
+            }
+
+
+
+            for (int row = 1; row < length; row++)
             {
                 TableRow newRow = new TableRow();
                 songsTable.Controls.Add(newRow);
                 for (int column = 0; column < 4; column++)
                 {
                     TableCell newCell = new TableCell();
-                    newCell.Text = "Cell" + row.ToString();
-                    newCell.Text += "; Column" + column.ToString();
-                    newRow.Controls.Add(newCell);
+                    newCell.Text = "Cell" + column.ToString();
+/*                  newCell.Text += "; Column" + column.ToString();
+*/                  newRow.Controls.Add(newCell);
                 }
             }
 
 
-/*            foreach (Song song in songs)
-            {
-                TableRow row = new TableRow();
-
-                for (int i = 0; i < 4; ++i)
-                {
-                    TableCell cell = new TableCell();
-                    cell.Text = "asd";
-                    row.Cells.Add(cell);
-                }
-                songsTable.Rows.Add(row);
-            }*/
 
         }
 
