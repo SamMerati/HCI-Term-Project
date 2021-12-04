@@ -6,5 +6,8 @@
     <p aria-multiselectable="False">
         <asp:Label ID="playlistsItems" runat="server" Text="api"></asp:Label>
     </p>
-    <p aria-multiselectable="False">&nbsp;</p>
+    <p aria-multiselectable="False">
+        <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" HorizontalAlign="Center" Width="125px">
+        </asp:DetailsView>
+    </p>
 </asp:Content>
