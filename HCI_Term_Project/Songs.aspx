@@ -3,10 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h3><%: Title %></h3>
     <h1>Liked Songs</h1>
-    <p>A playlist including all of the users liked songs.</p>
-    <p id="Songs">
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-    </p>
+    <p>Some of your top tracks!</p>
     <asp:Table ID="songsTable" runat="server" HorizontalAlign="Center" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CellPadding="0" CellSpacing="0" GridLines="Horizontal" CssClass="songsTable">  
     <asp:TableRow runat="server">  
         <asp:TableCell runat="server">No.</asp:TableCell>  

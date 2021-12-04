@@ -34,14 +34,13 @@ namespace HCI_Term_Project
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            blahblah.Text = "asdsd";
 
             newCode = HttpContext.Current.Request.Url.PathAndQuery.Replace("/Home?code=", "");
             JObject token = JObject.Parse(retrieveToken());
 
             //string TOKEN = token["access_token"].ToString();
 
-            string TOKEN = "BQCorcACq7W03lqdJMS91qrLZ0Nt7nQeX_WzvciqWVoAfimsQDsAbIuuEn_7ES7PLiRTJqgNSKTgO5jryVOQN9FUEMSMkIyUlsaQDed7-YxX87-wFtjx3u4M6q2QgCGrs2qpmWmgwwewj3mq95BmB-9iL6t41aio-7ljNlBde6PzEELBeBKlg0S4qQ7WMnd81skvdK5NqxuIOm4EftTjVzVNI6VigBq9xqma5tJWFukBXLefyEFTyNLzsqo42nn2sYmwvVq9fcMfT3o";
+            string TOKEN = "BQCUCjXBypXd1G1rPWOdX8tMNzjYLqMcW29XvRNhHO6mH8SvQOX2vpUsKhiCrnol90So7ynipx4pc_2jRd4uhWYY_gwmqdTlOJwus0SBVYDNjuIGGx10hg8Zr2X2c92RIkxvGBL9jyYkPXGrFGb1P9kunaKJiCQVetW7rX36T9182Deicv0pfmqWlhHa1KXjal1FaUk4_RLtgViTei-lU3rQJwFcotgKAxFEUjBznhv8o_qi0SJ88CS7weozNafN8z6jee6p6EKZHBA";
 
             Session["token"] = "Bearer " + TOKEN;
 

@@ -21,9 +21,6 @@ namespace HCI_Term_Project
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
 
-
-/*            JObject token = JObject.Parse(retrieveToken());
-*/
             request.AddHeader("Authorization", Session["token"].ToString());
             IRestResponse response = client.Execute(request);
 
@@ -33,34 +30,58 @@ namespace HCI_Term_Project
 
 
 
-/*            Label1.Text = json["items"].ToString();
-*/            int length = Int32.Parse(json["total"].ToString());
+            int length = Int32.Parse(json["total"].ToString());
 
             songs = new List<Song>();
             foreach (var item in json["items"])
             {
-                Label1.Text = item.ToString();
-
-                /*                songs.Add(new Song("item["name"].ToString()", item["artists"][0]["name"].ToString(), item["added_at"].ToString(), "ASD"));
-                */
-                songs.Add(new Song("hi", "bye", "no", "yes"));
+                string timeMs = TimeSpan.FromMilliseconds((double)item["track"]["duration_ms"]).TotalSeconds.ToString();
+                songs.Add(new Song(item["track"]["name"].ToString(), item["track"]["artists"][0]["name"].ToString(), item["added_at"].ToString(), timeMs));
             
             }
 
+            int i = 1;
 
-
-            for (int row = 1; row < length; row++)
+            foreach (Song song in songs)
             {
                 TableRow newRow = new TableRow();
                 songsTable.Controls.Add(newRow);
+
+                TableCell newCell = new TableCell();
+                newCell.Text = i.ToString();
+                newRow.Controls.Add(newCell);
+                i++;
+
+                newCell = new TableCell();
+                newCell.Text = song.Title;
+                newRow.Controls.Add(newCell);
+
+                newCell = new TableCell();
+                newCell.Text = song.Artist;
+                newRow.Controls.Add(newCell);
+
+                newCell = new TableCell();
+                newCell.Text = song.DateAdded;
+                newRow.Controls.Add(newCell);
+
+                newCell = new TableCell();
+                newCell.Text = song.Time;
+                newRow.Controls.Add(newCell);
+
+            }
+
+
+/*
+            for (int row = 1; row < length; row++)
+            {
+
+
                 for (int column = 0; column < 4; column++)
                 {
-                    TableCell newCell = new TableCell();
                     newCell.Text = "Cell" + column.ToString();
-/*                  newCell.Text += "; Column" + column.ToString();
-*/                  newRow.Controls.Add(newCell);
+                    newRow.Controls.Add(newCell);
                 }
-            }
+            }*/
 
 
 

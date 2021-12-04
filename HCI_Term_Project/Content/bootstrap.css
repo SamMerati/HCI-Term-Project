@@ -263,7 +263,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   position:;
-    right: 62px;
+    right: -125px;
 }
 td,
 th {
@@ -2430,11 +2430,11 @@ pre code {
 table {
   background-color: transparent;
     z-index: 1;
-    left: -59px;
+    left: 132px;
     top: -19px;
     position: relative;
     height: 161px;
-    width: 92%;
+    width: 72%;
     margin-top: 0px;
 }
 table col[class*="col-"] {
