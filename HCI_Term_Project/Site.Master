@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %>- Spotify Term Project</title>
+    <title><%: Page.Title%>- Spotify Term Project</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -19,20 +19,11 @@
 <body>
     <form runat="server">
         
-        <div class="sidebar">
+        <div class="sidebar" style="width:200px; text-align:left; padding-top:20px">
             <a href="Home"><i class="fa fa-fw fa-home"></i> Home</a>
             <a href="Songs"><i class="fa fa-fw fa-music"></i> Songs</a>
             <a href="Playlists"><i class="fa fa-fw fa-play"></i> Playlists</a>
             <a href="Artists"><i class="fa fa-fw fa-user"></i> Artists</a>
-            <div id="controller">
-            <asp:ContentPlaceHolder ID="mediaControl" runat="server">
-                <asp:Label ID="currentSong" runat="server" Font-Size="Medium" ForeColor="White" Text="Current Song Playing"></asp:Label>
-                <br>
-                <asp:Button ID="backButton" runat="server" Text="⏮" Width="30%" BackColor="#B5B5B5" BorderColor="#999999" BorderStyle="None" Font-Size="medium"/>
-                <asp:Button ID="playButton" runat="server" Text="▶️" Width="30%" BackColor="#B8BBBF" BorderColor="Fuchsia" BorderStyle="None" Font-Size="medium" OnClick="playButton_Click"/>
-                <asp:Button ID="forwardButton" runat="server" Text="⏭" Width="30%" BackColor="#BBC0C7" BorderStyle="None" Font-Size="medium"/>
-                </asp:ContentPlaceHolder>
-                </div>
         </div>
         <asp:ScriptManager runat="server">
             <Scripts>

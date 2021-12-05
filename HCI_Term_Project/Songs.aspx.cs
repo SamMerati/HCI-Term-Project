@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json.Linq;
 using RestSharp;
+using SpotifyAPI.Web;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -23,8 +25,6 @@ namespace HCI_Term_Project
 
             request.AddHeader("Authorization", Session["token"].ToString());
             IRestResponse response = client.Execute(request);
-
-
 
             JObject json = JObject.Parse(response.Content);
 
@@ -86,7 +86,6 @@ namespace HCI_Term_Project
 
 
         }
-
         protected void BulletedList1_Click(object sender, BulletedListEventArgs e)
         {
 

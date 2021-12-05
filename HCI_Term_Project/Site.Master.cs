@@ -13,10 +13,5 @@ namespace HCI_Term_Project
         {
 
         }
-
-        protected void playButton_Click(object sender, EventArgs e)
-        {
-            playButton.Text = "⏸";
-        }
     }
 }

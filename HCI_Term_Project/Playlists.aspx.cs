@@ -32,16 +32,23 @@ namespace HCI_Term_Project
 
             for (int i = 0; i < names.Count; i++)
             {
-                Label label = new Label();
-                label.Text = names[i];
-                this.Controls.Add(label);
                 Image image = new Image
                 {
                     ImageUrl = urls[i],
-                    Width = 100
+                    Width = 200,
+                    Height = 200
                 };
+                TableRow newRow = new TableRow();
+                playlistTable.Controls.Add(newRow);
 
-                this.Controls.Add(image);
+                TableCell newCell = new TableCell();
+                newCell.Controls.Add(image);
+                newRow.Controls.Add(newCell);
+
+                newCell = new TableCell();
+                newCell.Text = names[i];
+                newCell.Font.Size = 16;
+                newRow.Controls.Add(newCell);
             }
         }
     }

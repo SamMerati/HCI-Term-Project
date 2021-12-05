@@ -15,14 +15,7 @@
 </div>
 <div id="main">
   <div id="form">
-    <input name="input" placeholder="Username" type="text"/>
-    <input name="input" placeholder="Password" type="password"/>
-    <input name="login" type="submit" value="Log in" />
-  </div>
-  <div id="footer">
-    <a href="https://accounts.spotify.com/authorize?client_id=55f51ee8aa504686a72034c437db139d&amp;response_type=code&amp;scopes=user-library-read&amp;redirect_uri=https%3A%2F%2Flocalhost%3A44354%2FHome">Sign Up</a>
-    <br />
-    <a href="#">Forgot Password?</a>
+    &nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" />
   </div>
 </div>
         </div>

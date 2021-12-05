@@ -15,12 +15,12 @@ namespace HCI_Term_Project
     {
 
         /// <summary>
-        /// playlistsItems control.
+        /// playlistTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label playlistsItems;
+        protected global::System.Web.UI.WebControls.Table playlistTable;
     }
 }

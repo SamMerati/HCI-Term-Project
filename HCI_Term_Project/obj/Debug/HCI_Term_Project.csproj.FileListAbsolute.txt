@@ -452,3 +452,13 @@ C:\Users\Sepeh\OneDrive\Documents\GitHub\HCI-Term-Project\HCI_Term_Project\HCI_T
 C:\Users\Sepeh\OneDrive\Documents\GitHub\HCI-Term-Project\HCI_Term_Project\HCI_Term_Project\obj\Debug\HCI_Term_Project.csproj.CopyComplete
 C:\Users\Sepeh\OneDrive\Documents\GitHub\HCI-Term-Project\HCI_Term_Project\HCI_Term_Project\obj\Debug\HCI_Term_Project.dll
 C:\Users\Sepeh\OneDrive\Documents\GitHub\HCI-Term-Project\HCI_Term_Project\HCI_Term_Project\obj\Debug\HCI_Term_Project.pdb
+C:\Users\Sam\Desktop\CST\Term 4\HCI for Appln Development\Term project\HCI-Term-Project\HCI_Term_Project\bin\EmbedIO.dll
+C:\Users\Sam\Desktop\CST\Term 4\HCI for Appln Development\Term project\HCI-Term-Project\HCI_Term_Project\bin\SpotifyAPI.Web.Auth.dll
+C:\Users\Sam\Desktop\CST\Term 4\HCI for Appln Development\Term project\HCI-Term-Project\HCI_Term_Project\bin\SpotifyAPI.Web.dll
+C:\Users\Sam\Desktop\CST\Term 4\HCI for Appln Development\Term project\HCI-Term-Project\HCI_Term_Project\bin\Swan.Lite.dll
+C:\Users\Sam\Desktop\CST\Term 4\HCI for Appln Development\Term project\HCI-Term-Project\HCI_Term_Project\bin\System.ValueTuple.dll
+C:\Users\Sam\Desktop\CST\Term 4\HCI for Appln Development\Term project\HCI-Term-Project\HCI_Term_Project\bin\EmbedIO.xml
+C:\Users\Sam\Desktop\CST\Term 4\HCI for Appln Development\Term project\HCI-Term-Project\HCI_Term_Project\bin\SpotifyAPI.Web.xml
+C:\Users\Sam\Desktop\CST\Term 4\HCI for Appln Development\Term project\HCI-Term-Project\HCI_Term_Project\bin\SpotifyAPI.Web.Auth.xml
+C:\Users\Sam\Desktop\CST\Term 4\HCI for Appln Development\Term project\HCI-Term-Project\HCI_Term_Project\bin\Swan.Lite.xml
+C:\Users\Sam\Desktop\CST\Term 4\HCI for Appln Development\Term project\HCI-Term-Project\HCI_Term_Project\bin\System.ValueTuple.xml
