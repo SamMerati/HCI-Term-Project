@@ -42,7 +42,7 @@ namespace HCI_Term_Project
 
             //string TOKEN = token["access_token"].ToString();
 
-            string TOKEN = token["access_token"].ToString();
+            string TOKEN = "BQBdJpoomUVqJYle1jVFJZ_18tD3bjxg2aQiZwUs12LJiq1SlL8hApWMMgRoUpewe1GBr6llRrY-_f1em-Cxt_dVQYl5drNfQv2REizulX0s01yddl8eI_tldP8yTg6rupv3tD3Ge6iMlF4GqQRxaXAW0EHp8GTI_1JDxctrIrYimALOliFnNlhsox5EqztrfsSTqfIZ6oMde0safSmkHi3IQmVgSXo";
 
             Session["token"] = "Bearer " + TOKEN;
 
@@ -66,12 +66,21 @@ namespace HCI_Term_Project
             request3.AddHeader("Authorization", Session["token"].ToString());
             IRestResponse response3 = client3.Execute(request3);
             JObject json3 = JObject.Parse(response3.Content);
+
             var client4 = new RestClient("https://api.spotify.com/v1/me/player/currently-playing");
             client4.Timeout = -1;
             var request4 = new RestRequest(Method.GET);
             request4.AddHeader("Authorization", Session["token"].ToString());
             IRestResponse response4 = client4.Execute(request4);
             JObject json4 = JObject.Parse(response4.Content);
+
+            var client5 = new RestClient("https://api.spotify.com/v1/me/player");
+            client5.Timeout = -1;
+            var request5 = new RestRequest(Method.GET);
+            request5.AddHeader("Authorization", Session["token"].ToString());
+            IRestResponse response5 = client5.Execute(request5);
+            JObject json5 = JObject.Parse(response5.Content);
+            string isActive = json5["device"]["is_active"].ToString();
 
             profilePic.ImageUrl = json["images"][0]["url"].ToString();
             usernameText.Text = json["display_name"].ToString();
@@ -79,16 +88,24 @@ namespace HCI_Term_Project
             playlistsText.Text = json2["total"].ToString();
             followingText.Text = json3["artists"]["total"].ToString();
             currentImage.ImageUrl = json4["item"]["album"]["images"][0]["url"].ToString();
-            currentSong.Text = json4["item"]["name"].ToString();
+            currentSong.Text = json4["item"]["name"].ToString() + " - " + json4["item"]["artists"][0]["name"].ToString();
+            if (isActive.Equals("True"))
+            {
+                Play();
+            }
+            else
+            {
+                Pause();
+            }
         }
 
         public async Task GetCallback(string code)
         {
-            var response = await new OAuthClient().RequestToken(
-              new AuthorizationCodeTokenRequest("55f51ee8aa504686a72034c437db139d", "99048e5815a84baa90ec87abd18817bb", code, "http://localhost:44354/Home")
-            );
+            //var response = await new OAuthClient().RequestToken(
+             // new AuthorizationCodeTokenRequest("55f51ee8aa504686a72034c437db139d", "99048e5815a84baa90ec87abd18817bb", code, "http://localhost:44354/Home")
+            //);
 
-            var spotify = new SpotifyClient(response.AccessToken);
+            //var spotify = new SpotifyClient(response.AccessToken);
             // Also important for later: response.RefreshToken
         }
 
@@ -96,77 +113,68 @@ namespace HCI_Term_Project
         {
             if (playButton.Text == "▶️")
             {
-                playButton.Text = "⏸";
-                var client = new RestClient("https://api.spotify.com/v1/me/player/play");
-                client.Timeout = -1;
-                var request = new RestRequest(Method.PUT);
-                request.AddHeader("Authorization", Session["token"].ToString());
-                IRestResponse response = client.Execute(request);
-
-                var client4 = new RestClient("https://api.spotify.com/v1/me/player/currently-playing");
-                client4.Timeout = -1;
-                var request4 = new RestRequest(Method.GET);
-                request4.AddHeader("Authorization", Session["token"].ToString());
-                IRestResponse response4 = client4.Execute(request4);
-                JObject json4 = JObject.Parse(response4.Content);
-                currentImage.ImageUrl = json4["item"]["album"]["images"][0]["url"].ToString();
-                currentSong.Text = json4["item"]["name"].ToString();
+                Play();
             }
-
             else if (playButton.Text == "⏸")
             {
-                playButton.Text = "▶️";
-                var client = new RestClient("https://api.spotify.com/v1/me/player/pause");
-                client.Timeout = -1;
-                var request = new RestRequest(Method.PUT);
-                request.AddHeader("Authorization", Session["token"].ToString());
-                IRestResponse response = client.Execute(request);
-
-                var client4 = new RestClient("https://api.spotify.com/v1/me/player/currently-playing");
-                client4.Timeout = -1;
-                var request4 = new RestRequest(Method.GET);
-                request4.AddHeader("Authorization", Session["token"].ToString());
-                IRestResponse response4 = client4.Execute(request4);
-                JObject json4 = JObject.Parse(response4.Content);
-                currentImage.ImageUrl = json4["item"]["album"]["images"][0]["url"].ToString();
-                currentSong.Text = json4["item"]["name"].ToString();
+                Pause();
             }
+        }
+
+        private void Play()
+        {
+            playButton.Text = "⏸";
+            var client = new RestClient("https://api.spotify.com/v1/me/player/play");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.PUT);
+            request.AddHeader("Authorization", Session["token"].ToString());
+            IRestResponse response = client.Execute(request);
+
+            var client4 = new RestClient("https://api.spotify.com/v1/me/player/currently-playing");
+            client4.Timeout = -1;
+            var request4 = new RestRequest(Method.GET);
+            request4.AddHeader("Authorization", Session["token"].ToString());
+            IRestResponse response4 = client4.Execute(request4);
+            JObject json4 = JObject.Parse(response4.Content);
+            currentImage.ImageUrl = json4["item"]["album"]["images"][0]["url"].ToString();
+            currentSong.Text = json4["item"]["name"].ToString() + " - " + json4["item"]["artists"][0]["name"].ToString();
+        }
+
+        private void Pause()
+        {
+            playButton.Text = "▶️";
+            var client = new RestClient("https://api.spotify.com/v1/me/player/pause");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.PUT);
+            request.AddHeader("Authorization", Session["token"].ToString());
+            IRestResponse response = client.Execute(request);
+
+            var client4 = new RestClient("https://api.spotify.com/v1/me/player/currently-playing");
+            client4.Timeout = -1;
+            var request4 = new RestRequest(Method.GET);
+            request4.AddHeader("Authorization", Session["token"].ToString());
+            IRestResponse response4 = client4.Execute(request4);
+            JObject json4 = JObject.Parse(response4.Content);
+            currentImage.ImageUrl = json4["item"]["album"]["images"][0]["url"].ToString();
+            currentSong.Text = json4["item"]["name"].ToString() + " - " + json4["item"]["artists"][0]["name"].ToString();
         }
 
         protected void forwardButton_Click(object sender, EventArgs e)
         {
             var client = new RestClient("https://api.spotify.com/v1/me/player/next");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.PUT);
+            var request = new RestRequest(Method.POST);
             request.AddHeader("Authorization", Session["token"].ToString());
             IRestResponse response = client.Execute(request);
-
-            var client4 = new RestClient("https://api.spotify.com/v1/me/player/currently-playing");
-            client4.Timeout = -1;
-            var request4 = new RestRequest(Method.GET);
-            request4.AddHeader("Authorization", Session["token"].ToString());
-            IRestResponse response4 = client4.Execute(request4);
-            JObject json4 = JObject.Parse(response4.Content);
-            currentImage.ImageUrl = json4["item"]["album"]["images"][0]["url"].ToString();
-            currentSong.Text = json4["item"]["name"].ToString();
+            Play();
         }
 
         protected void backButton_Click(object sender, EventArgs e)
         {
             var client = new RestClient("https://api.spotify.com/v1/me/player/previous");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.PUT);
+            var request = new RestRequest(Method.POST);
             request.AddHeader("Authorization", Session["token"].ToString());
             IRestResponse response = client.Execute(request);
-
-            var client4 = new RestClient("https://api.spotify.com/v1/me/player/currently-playing");
-            client4.Timeout = -1;
-            var request4 = new RestRequest(Method.GET);
-            request4.AddHeader("Authorization", Session["token"].ToString());
-            IRestResponse response4 = client4.Execute(request4);
-            JObject json4 = JObject.Parse(response4.Content);
-            currentImage.ImageUrl = json4["item"]["album"]["images"][0]["url"].ToString();
-            currentSong.Text = json4["item"]["name"].ToString();
+            Play();
         }
     }
 }

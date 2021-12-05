@@ -14,7 +14,7 @@
   </div>
 </div>
 <div id="main">
-  <div id="form">
+  <div id="form" style="text-align:center">
     &nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" />
   </div>
 </div>
