@@ -253,6 +253,7 @@ table {
   border-spacing: 0;
   position:;
     right: -271px;
+    bottom: 8px;
 }
 td,
 th {
@@ -2417,12 +2418,13 @@ pre code {
 table {
   background-color: transparent;
     z-index: 1;
-    left: 271px;
-    top: -8px;
+    left: 243px;
+    top: -9px;
     position: relative;
     height: 161px;
     width: 72%;
     margin-top: 0px;
+    right: -243px;
 }
 table col[class*="col-"] {
   position: static;
@@ -2448,6 +2450,9 @@ th {
   width: 80%;
   max-width: 100%;
   margin-bottom: 20px;
+    top: -8px;
+    right: -271px;
+    left: 271px;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,

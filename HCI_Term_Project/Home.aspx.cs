@@ -42,7 +42,7 @@ namespace HCI_Term_Project
 
             //string TOKEN = token["access_token"].ToString();
 
-            string TOKEN = "BQBdJpoomUVqJYle1jVFJZ_18tD3bjxg2aQiZwUs12LJiq1SlL8hApWMMgRoUpewe1GBr6llRrY-_f1em-Cxt_dVQYl5drNfQv2REizulX0s01yddl8eI_tldP8yTg6rupv3tD3Ge6iMlF4GqQRxaXAW0EHp8GTI_1JDxctrIrYimALOliFnNlhsox5EqztrfsSTqfIZ6oMde0safSmkHi3IQmVgSXo";
+            string TOKEN = "BQBiUuKN6AZ2lU6bgpJbmv-qfRN1bZXU_4raFyi2IKe_xZJV017E4Prs4fwaMq3Y1crZ5B6-Gn7tbxKFoCNlFs_JPWJcIOm5GybHHxy3FHXoWbNWovBxZuLJ-ZcokcTJgXuZEc44mKWGmw-RD6PeU5w1SFDy4Roc3atWoqAepeIuve0c7128z1LBB49tZ7kRHX9f8otRLdr8TqldUWQ6MSjumRYinwWkObxQDfLIpPctOWs";
 
             Session["token"] = "Bearer " + TOKEN;
 
@@ -72,30 +72,30 @@ namespace HCI_Term_Project
             var request4 = new RestRequest(Method.GET);
             request4.AddHeader("Authorization", Session["token"].ToString());
             IRestResponse response4 = client4.Execute(request4);
-            JObject json4 = JObject.Parse(response4.Content);
 
-            var client5 = new RestClient("https://api.spotify.com/v1/me/player");
-            client5.Timeout = -1;
-            var request5 = new RestRequest(Method.GET);
-            request5.AddHeader("Authorization", Session["token"].ToString());
-            IRestResponse response5 = client5.Execute(request5);
-            JObject json5 = JObject.Parse(response5.Content);
-            string isActive = json5["device"]["is_active"].ToString();
+            //var client5 = new RestClient("https://api.spotify.com/v1/me/player");
+            //client5.Timeout = -1;
+            //var request5 = new RestRequest(Method.GET);
+            //request5.AddHeader("Authorization", Session["token"].ToString());
+            //IRestResponse response5 = client5.Execute(request5);
+            //JObject json5 = JObject.Parse(response5.Content);
+            //string isActive = json5["device"]["is_active"].ToString();
 
             profilePic.ImageUrl = json["images"][0]["url"].ToString();
             usernameText.Text = json["display_name"].ToString();
             followersText.Text = json["followers"]["total"].ToString();
             playlistsText.Text = json2["total"].ToString();
             followingText.Text = json3["artists"]["total"].ToString();
-            currentImage.ImageUrl = json4["item"]["album"]["images"][0]["url"].ToString();
-            currentSong.Text = json4["item"]["name"].ToString() + " - " + json4["item"]["artists"][0]["name"].ToString();
-            if (isActive.Equals("True"))
+            try
             {
-                Play();
+                JObject json4 = JObject.Parse(response4.Content);
+                currentImage.ImageUrl = json4["item"]["album"]["images"][0]["url"].ToString();
+                currentSong.Text = json4["item"]["name"].ToString() + " - " + json4["item"]["artists"][0]["name"].ToString();
             }
-            else
+            catch(Newtonsoft.Json.JsonReaderException)
             {
-                Pause();
+                currentSong.Text = "No Song is currently playing";
+
             }
         }
 
@@ -148,7 +148,6 @@ namespace HCI_Term_Project
             var request = new RestRequest(Method.PUT);
             request.AddHeader("Authorization", Session["token"].ToString());
             IRestResponse response = client.Execute(request);
-
             var client4 = new RestClient("https://api.spotify.com/v1/me/player/currently-playing");
             client4.Timeout = -1;
             var request4 = new RestRequest(Method.GET);

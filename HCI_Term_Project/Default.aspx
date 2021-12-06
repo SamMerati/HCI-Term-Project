@@ -15,7 +15,9 @@
 </div>
 <div id="main">
   <div id="form" style="text-align:center">
-    &nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" />
+    &nbsp;<asp:Label ID="Label1" runat="server" Text="Login to your Spotify account" Font-Size="Large" ForeColor="White"></asp:Label>
+      <br /><br />
+      <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" BackColor="#339933" BorderStyle="None" Font-Size="Large" />
   </div>
 </div>
         </div>
